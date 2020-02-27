@@ -1,22 +1,28 @@
 ---
-- name: Installing ant packages using apt
-  become: true
-  apt:
-    pkg: "ant"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'Ubuntu'
+#- name: Installing ant packages using apt
+#  become: true
+#  apt:
+#    pkg: "ant"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Installing ant packages using yum
-  become: true
-  yum:
-    pkg: "ant"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+#- name: Installing ant packages using yum
+#  become: true
+#  yum:
+#    pkg: "ant"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Installing ant packages using pacman
-  pacman:
+#- name: Installing ant packages using pacman
+#  pacman:
+#    name: "ant"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing ant packages
+  become: true
+  package:
     name: "ant"
     state: present
-  when: ansible_distribution == 'MacOSX'
